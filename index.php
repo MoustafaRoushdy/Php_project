@@ -1,5 +1,5 @@
 <?php
-session_start();
+ session_start();
   require_once('vendor/autoload.php');
 define('CSSPATH', 'View/CSS/'); //define css path
 $cssItem = 'style.css'; //css item to display
@@ -27,12 +27,12 @@ $cssItem = 'style.css'; //css item to display
                         <div class="sign-in-htm">
                             <div class="group">
                                 <label for="user" class="label">Email</label>
-                                <input id="user" type="text" name="email" class="input" 
+                                <input id="user" type="text" class="input" 
                                        >
                             </div>
                             <div class="group">
                                 <label for="pass" class="label">Password</label>
-                                <input id="pass" type="password" name="password" class="input" data-type="password"
+                                <input id="pass" type="password" class="input" data-type="password"
                                        >
                             </div>
                             <div class="group">

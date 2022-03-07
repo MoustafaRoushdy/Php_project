@@ -13,7 +13,7 @@ class signUp extends databaseController {
     }
 
     protected function checkUser($userName, $email) {
-        $statement = $this->connect()->prepare('SELECT user_name FROM user WHERE user_name = ? OR user_email = ? ;');
+        $statement = $this->connect()->prepare('SELECT user_name FROM user WHERE user_name=? OR user_email=? ;');
         if (!$statement->execute(array($userName, $email))) {
             $statement = null;
             header("location: ../index.php?error=statementFailed");
