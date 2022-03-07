@@ -1,44 +1,28 @@
 
-IF NOT EXISTS(SELECT * FROM sys.databases WHERE name = 'nice')
-BEGIN
-CREATE DATABASE [nice]
+CREATE database nice ; 
+ use nice; 
 
-
-END
-GO
-    USE [nice]
-GO
-
-IF NOT EXISTS (SELECT * FROM sysobjects WHERE name=' users')
-BEGIN
     CREATE TABLE  users (
-         user_Id INT PRIMARY KEY AUTO_INCREMENT,
-         user_Email VARCHAR(100),
-         user_Password VARCHAR(100)
-    )
-END
+         user_Id INT PRIMARY KEY AUTO_INCREMENT ,
+         user_Email VARCHAR(100) NOT NULL,
+         user_Password VARCHAR(100) NOT NULL
+        );
 
-IF NOT EXISTS (SELECT * FROM sysobjects WHERE name='products')
-BEGIN
+
     CREATE TABLE products (
         product_id INT PRIMARY KEY AUTO_INCREMENT,
-        download_file_link VARCHAR(100),
-        product_name VARCHAR(100)
-    )
-END
+        download_file_link VARCHAR(100) NOT NULL,
+        product_name VARCHAR(100) NOT NULL
+        );
 
-IF NOT EXISTS (SELECT * FROM sysobjects WHERE name='tokens')
-BEGIN
     CREATE TABLE tokens (
         product_id INT PRIMARY KEY AUTO_INCREMENT,
-        remember_me_token VARCHAR(100)
-    )
-END
+        remember_me_token VARCHAR(100) NOT NULL
+    );
 
-IF NOT EXISTS (SELECT * FROM sysobjects WHERE name='orders')
-BEGIN
+
     CREATE TABLE orders (
         order_id INT PRIMARY KEY AUTO_INCREMENT,
-        oredr_date VARCHAR(100)
-    )
-END
+        oredr_date VARCHAR(100) NOT NULL
+    );
+
