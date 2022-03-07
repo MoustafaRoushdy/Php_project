@@ -1,4 +1,4 @@
-<?php
+$this->email<?php
 
 class signUpController extends signUp{
 
