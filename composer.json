@@ -1,0 +1,13 @@
+{
+    "name":"phpproject/downloadarea",
+    "description": "composer",
+    "license": "MIT",
+    "require" : {
+      
+        "illuminate/database": "*"
+    },
+    "autoload":{
+        "classmap": ["model"],
+        "files": ["conf.php"]
+    }
+}
