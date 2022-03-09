@@ -53,10 +53,14 @@ class Visitor {
 
         if(Capsule::table("users")->where('user_email','like',$user_email,"and")->where("user_password","like",$password,"and")->exists())
         {
+            if (!isset($_SESSION["mail"]) || $_SESSION["mail"] == null)
+            {
+                $_SESSION["mail"] = $user_email;
+            }
             echo "corect username and password";
         }
         else{
-            echo "wrong username or password";
+            echo "<h5>wrong username or password</h5>"; //how to display it in the end of the page
         }
             
     }
