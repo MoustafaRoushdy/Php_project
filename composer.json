@@ -1,0 +1,11 @@
+{
+    "name": "vendor_name/phpproject",
+    "description": "simple project",
+    "license": "MIT",
+    "require": {"illuminate/database" :"*"},
+    "autoload": {
+        "classmap": ["Model","View","Controller"],
+        "files" : ["config.php"]
+    }
+    
+}
