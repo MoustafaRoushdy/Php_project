@@ -1,84 +1,112 @@
 <?php
+
+
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 session_start();
-  require_once('vendor/autoload.php');
-define('CSSPATH', 'View/CSS/'); //define css path
-$cssItem = 'style.css'; //css item to display
+require_once ("vendor/autoload.php");
+if(isset($_POST["username"]))
+{
+    $x = new Visitor($_POST["username"],$_POST["password"]);
+}
 ?>
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Login page</title>
 
-        <link rel="stylesheet" href="<?php echo (CSSPATH . "$cssItem"); ?>" type="text/css">
 
-    </head>
-    <body>
-        <div class="login-wrap">
-            <!--      form for login-->
 
-            <div class="login-html">
-                <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Log In</label>
-                <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Sign Up</label>
-                <div class="login-form">
-                    <form id="loginForm" action="Model/login.php" method="POST" enctype="multipart/form-data">
-                        <div class="sign-in-htm">
-                            <div class="group">
-                                <label for="user" class="label">Email</label>
-                                <input id="user" type="text" name="email" class="input" 
-                                       >
-                            </div>
-                            <div class="group">
-                                <label for="pass" class="label">Password</label>
-                                <input id="pass" type="password" name="password" class="input" data-type="password"
-                                       >
-                            </div>
-                            <div class="group">
-                                <input id="check" type="checkbox" class="check" checked>
-                                <label for="check"><span class="icon"></span> Remember Me</label>
-                            </div>
-                            <div class="group">
-                                <input type="submit"  name="submit" class="button" value="Log In">
-                            </div>
-                            <div class="hr"></div>
-                            <div class="foot-lnk">
-                                <a href="#forgot">Forgot Password?</a>
-                            </div>
-                        </div>
-                    </form>
 
-                    <!--      form for Sign up-->
-                    <div class="sign-up-htm">
-                        <form id="signupForm" action="../PhpProject_1/Model/signup.php" method="POST" enctype="multipart/form-data">
-                            <div class="group">
-                                <label for="user" class="label">Username</label>
-                                <input id="user" type="text" name="username" class="input">
-                            </div>
-                            <div class="group">
-                                <label for="pass" class="label">Password</label>
-                                <input id="pass" type="password" name="password" class="input" data-type="password">
-                            </div>
-                            <div class="group">
-                                <label for="pass" class="label">Repeat Password</label>
-                                <input id="pass" type="password" name="repeatPassword" class="input" data-type="password">
-                            </div>
-                            <div class="group">
-                                <label for="pass" class="label">Email Address</label>
-                                <input id="pass" type="email" name="email" class="input">
-                            </div>
-                            <div class="group">
-                                <input type="submit" name="submit" class="button" value="Sign Up">
-                            </div>
-                            <div class="hr"></div>
-                            <div class="foot-lnk">
-                                <label for="tab-1">Already Member?</a>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </body>
-</html>
+
+
+
+
+
+
+
+
+
+
+
+<html>   
+    <head>  
+    <meta name="viewport" content="width=device-width, initial-scale=1">  
+    <title> Login Page </title>  
+    <style>   
+    Body {  
+      font-family: Calibri, Helvetica, sans-serif;  
+    }  
+    button {   
+           background-color: #4CAF50;   
+           width: 100%;  
+            color: orange;   
+            padding: 15px;   
+            margin: 10px 0px;   
+            border: none;   
+            cursor: pointer;   
+             }   
+     form {   
+            border: 3px solid #f1f1f1;   
+        }   
+     input[type=text], input[type=password] {   
+            width: 100%;   
+            margin: 8px 0;  
+            padding: 12px 20px;   
+            display: inline-block;   
+            border: 2px solid green;   
+            box-sizing: border-box;   
+        }  
+     button:hover {   
+            opacity: 0.7;   
+        }   
+      .cancelbtn {   
+            width: auto;   
+            padding: 10px 18px;  
+            margin: 10px 5px;  
+        }   
+    <head>  
+    <title> Login Page </title>  
+    <style>   
+    Body {  
+      font-family: Calibri, Helvetica, sans-serif;  
+      background-color: pink;  
+    }  
+    button {   
+           background-color: #4CAF50;   
+           width: 100%;  
+            color: orange;   
+            padding: 15px;   
+            margin: 10px 0px;   
+            border: none;   
+            cursor: pointer;   
+             }   
+     form {   
+            border: 3px solid #f1f1f1; 
+            width : 300pt;   
+        }   
+             input[type=text], input[type=password] {   
+            width: 100%;   
+            margin: 8px 0;  
+            padding: 12px 20px;   
+          
+         
+     .container {   
+            padding: 25px;   
+            background-color: lightblue;  
+        }   
+    </style>   
+    </head> 
+    <center>   
+        <body>    
+            <h1>Login Form </h1>   
+            <form method="post" action="<?php echo $_SERVER["PHP_SELF"];  ?>">  
+                <div class="container">   
+                    <label>Username : </label>   
+                    <input type="text" placeholder="Enter Username" name="username" required>  
+                    <label>Password : </label>   
+                    <input type="password" placeholder="Enter Password" name="password" required>  
+                    <button type="submit">Login</button>   
+                    <center><input type="checkbox" checked="checked"> Remember me </center>
+                </div>   
+            </form>     
+        </body>    
+    </center>  
+    </html>  

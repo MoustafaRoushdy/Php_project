@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-=======
+
 CREATE database ecommerce  ;
  use ecommerce; 
 
@@ -29,4 +28,4 @@ CREATE database ecommerce  ;
         user_id INT REFERENCES users(user_id),
         product_id INT REFERENCES products(product_id)
     );
->>>>>>> Login
+
