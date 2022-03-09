@@ -1,15 +1,37 @@
 <?php
 
-
+//***********************displaying errors***************************************** */
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
+
+
 session_start();
 require_once ("vendor/autoload.php");
+use Illuminate\Database\Capsule\Manager as Capsule;
+
+/***********************connecting to the database*********************************** */
+$capsule = new Capsule;
+$capsule->addConnection([
+    "driver"=>_driver_,
+    "host"=>_host_,
+    "database"=>_database_,
+    "username"=>_username_,
+    "password"=>_password_
+]);
+$capsule->setAsGlobal();
+$capsule->bootEloquent();
+$user_table = Capsule::table("users");
+
+
+
 if(isset($_POST["username"]))
 {
     $x = new Visitor($_POST["username"],$_POST["password"]);
 }
+
+
+
 ?>
 
 
