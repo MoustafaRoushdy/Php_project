@@ -27,8 +27,41 @@ $user_table = Capsule::table("users");
 
 if(isset($_POST["username"]))
 {
-    $x = new Visitor($_POST["username"],$_POST["password"]);
+    $x = new Visitor($_POST["username"],$_POST["password"],$user_table);
 }
+
+/**
+ * Description of Visitor
+ *
+ * @author moustafa
+ */
+class Visitor {
+    private $user_name;
+    private $password;
+                
+    function __construct($user_email ,$password)
+    {
+        echo "constructor".PHP_EOL;
+        $this->user_email = $user_email;
+        $this->password = $password;
+        
+        self::login($user_email, $password);
+    }
+    
+    static function login($user_email ,$password) {
+
+
+        if(Capsule::table("users")->where('user_email','like',$user_email,"and")->where("user_password","like",$password,"and")->exists())
+        {
+            echo "corect username and password";
+        }
+        else{
+            echo "wrong username or password";
+        }
+            
+    }
+}
+
 
 
 
