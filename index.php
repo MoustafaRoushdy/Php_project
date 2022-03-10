@@ -71,7 +71,7 @@ class Visitor {
             
     }
 }
-require_once("View/login.php");
+require_once("View/login.html");
 
 
 
