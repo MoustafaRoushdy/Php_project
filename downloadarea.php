@@ -1,4 +1,5 @@
  <?php
+ if(isset($_SESSION["flag"]) &&isset($_SESSION["flag"])==true){
        require_once("vendor/autoload.php");
        require_once("views/download view.php");
        
@@ -10,4 +11,8 @@
       if(isset($_POST["logout"])){
             filedownload::logout();
         }
+ }else {
+       header("Location:loginbage.php",true,301);
+                                       exit();
+ }
 ?>

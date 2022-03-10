@@ -1,8 +1,9 @@
 <?php 
-
+use Illuminate\Database\Capsule\Manager as Capsule;
+ if(isset($_SESSION["flag"]) &&isset($_SESSION["flag"])==true){
 require_once("vendor/autoload.php");
 
-use Illuminate\Database\Capsule\Manager as Capsule;
+
 filedownload::connect();
 session_start();
 $path=$_SESSION["file"];
@@ -36,7 +37,10 @@ if(isset($_GET["file"]))
 	}
           header("Location:downloadarea.php",true,301);
                                        exit();
-}
+} }else {
+       header("Location:loginbage.php",true,301);
+                                       exit();
+ }
 ?>
 <!DOCTYPE html>
 
