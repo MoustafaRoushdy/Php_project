@@ -64,8 +64,10 @@ class filedownload{
     
     //log out
    static  function logout(){
-            $_SESSION["flag"]=false;
-
+            session_unset();
+            session_destroy();
+           setcookie("checked", "", time()-(60*60*24*7));
+            unset($_COOKIE["checked"]);
             header("Location:default.php",true,301);
                                                exit();
 }
