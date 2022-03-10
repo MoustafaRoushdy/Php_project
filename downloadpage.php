@@ -1,6 +1,6 @@
 <?php 
 use Illuminate\Database\Capsule\Manager as Capsule;
- if(isset($_SESSION["mail"])) {
+if(isset($_SESSION["mail"])) {
 require_once("vendor/autoload.php");
 
 
@@ -47,14 +47,31 @@ if(isset($_GET["file"]))
 <html>
 <head>
 	<title>Download File using PHP</title>
+	<style>
+		body{
+			background-image: url("image.jpg");
+			background-size: 2000px;
+		}
+		.container{
+			margin: auto;
+			margin-top: 100px;
+			width:320px;
+			height: 300px;
+			padding: 16px;
+			color: #f2f3f4;
+		}
+		h1{
+			color: #8B0000;
+		}
+	</style>
 </head>
 <body>
+	<div class="container">
+		<h1>Download Page </h1>
+		<h2  > <?php echo "XYZ_OS42.txt   sizeof: 1kb";?> </h2>
 
-<h2>Download File from HERE : </h2>
-<h2  > <?php echo "text2.txt   sizeof: 1kb";?> </h2>
-
-<a href="downloadpage.php?file=<?php echo $path ?>">click HERE</a>
-
+		<a href="downloadpage.php?file=<?php echo $path ?>">click HERE</a> to download
+	</div>
 
 
 </body>

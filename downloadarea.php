@@ -1,7 +1,7 @@
  <?php
  if(isset($_SESSION["mail"])) {
        require_once("vendor/autoload.php");
-       require_once("views/download view.php");
+       require_once("views/download view.html");
        
        //if user click download buuton
       if(isset($_POST["download"])){
