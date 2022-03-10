@@ -1,5 +1,5 @@
  <?php
- if(isset($_SESSION["flag"]) &&isset($_SESSION["flag"])==true){
+ if(isset($_SESSION["mail"])) {
        require_once("vendor/autoload.php");
        require_once("views/download view.php");
        

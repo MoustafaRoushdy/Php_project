@@ -1,6 +1,6 @@
 <?php 
 use Illuminate\Database\Capsule\Manager as Capsule;
- if(isset($_SESSION["flag"]) &&isset($_SESSION["flag"])==true){
+ if(isset($_SESSION["mail"])) {
 require_once("vendor/autoload.php");
 
 
