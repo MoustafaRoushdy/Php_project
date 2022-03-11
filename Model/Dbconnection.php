@@ -14,8 +14,8 @@ class Dbconnection
         "username"=>_username_,
         "password"=>_password_
 ]);
-$this->capsule->setAsGlobal();
-$this->capsule->bootEloquent();
+    $this->capsule->setAsGlobal();
+    $this->capsule->bootEloquent();
     }
 
     public function getTableName($table)
