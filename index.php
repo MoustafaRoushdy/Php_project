@@ -8,16 +8,23 @@ error_reporting(E_ALL);
 
 session_start();
 require_once ("vendor/autoload.php");
+header("Location:View/login.php");
 
 
 if(isset($_POST["username"]))
 {
     
-    $x = new Visitor($_POST["username"],$_POST["password"]);
-    echo "hello";
+    $x = new Visitor();
 }
-
-require_once("View/login.php");
+echo "<h5>hello</h5>";
+if(!isset($_SESSION["mail"]))
+{
+   // header("Location:View/login.php");
+}
+else if(isset($_SESSION["mail"]))
+{
+    header("Location:View/download.php");
+}
 
 
 

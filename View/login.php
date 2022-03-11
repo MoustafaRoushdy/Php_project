@@ -1,4 +1,8 @@
 
+<?php 
+
+
+?>
 <html>   
     <head>  
     <meta name="viewport" content="width=device-width, initial-scale=1">  
@@ -8,7 +12,7 @@
     <center>   
         <body>    
             <h1>Login Form </h1>   
-            <form method="post" action='<?php echo $_SERVER["PHP_SELF"];  ?>' >  
+            <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="POST" >
                 <div class="container">   
                     <label>Username : </label>   
                     <input type="text" placeholder="Enter Username" name="username" required>  
@@ -19,15 +23,11 @@
                     <h5><?php 
                         if (isset($_SESSION["mail"]) && $_SESSION != "wrong")
                         echo "you are redircted to download page";
-                        else if ($_SESSION["mail"] == "worng" )
+                        else if (isset($_SESSION["wrong_password"]) && $_SESSION["wrong_password"] == TRUE)
                         echo "wrong user name and password";
-                        else echo "anything";
                         ?></h5>
-                        <h6><?php if (isset($_SESSION["mail"])) var_dump($_SESSION["mail"]); ?></h6>
                 </div>   
             </form>     
         </body>    
     </center>  
     </html>  
-
-    <!-- -->
