@@ -10,13 +10,15 @@ session_start();
 require_once ("vendor/autoload.php");
 
 
-
 if(isset($_POST["username"]))
 {
+    
     $x = new Visitor($_POST["username"],$_POST["password"]);
+    echo "hello";
 }
 
-header("Location:View/login.php");
+require_once("View/login.php");
+
 
 
 
