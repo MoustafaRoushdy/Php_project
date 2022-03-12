@@ -8,7 +8,7 @@ require_once ("../vendor/autoload.php");
 
 if(isset($_SESSION["id"]))
 {
-    header("Location:downloadarea.php");
+    //header("Location:downloadarea.php");
 }
 else if(isset($_POST["username"]))
 {
@@ -28,7 +28,7 @@ else if(isset($_POST["username"]))
     </head> 
     <center>   
         <body>    
-            <h1>Login Form </h1>   
+            <h1>Login</h1>   
             <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="POST" >
                 <div class="container">   
                     <label>Username : </label>   
@@ -38,10 +38,9 @@ else if(isset($_POST["username"]))
                     <button type="submit">Login</button>   
                     <center><input type="checkbox" checked="checked" name = "remember_me"> Remember me </center>
                     <h5><?php 
-                        // if (isset($_SESSION["mail"]) && $_SESSION != "wrong")
-                        // echo "you are redircted to download page";
-                        // else if (isset($_SESSION["wrong_password"]) && $_SESSION["wrong_password"] == TRUE)
-                        // echo "wrong user name and password";
+                        if (isset($_SESSION["wrong pass"]))
+                        echo "wrong user name and password";
+                        else echo ""
                         ?></h5>
                 </div>   
             </form>     

@@ -41,10 +41,10 @@ if(isset($_GET["file"]))
 	else{
 		echo "This File Does not exist.";
 	}
-       //   header("Location:downloadarea.php",true,301);
+          header("Location:downloadarea.php",true,301);
                                        exit();
 } }else {
-     //  header("Location:login.php",true,301);
+      header("Location:login.php",true,301);
         exit();
  }
 ?>

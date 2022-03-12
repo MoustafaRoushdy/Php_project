@@ -31,7 +31,7 @@ class Visitor {
 
                             if (!$this->user)
                             {
-                                echo "wrong username or password";
+                                $_SESSION["wrong pass"] = TRUE;
                             }
 
                             else if ($remember_me == "on")
@@ -40,11 +40,13 @@ class Visitor {
                                 $cookie_name = "checked";
                                 $cookie_value = $this->user->user_id;
                                 setcookie($cookie_name, $cookie_value, time() + (60), "/"); 
+                                $_SESSION["wrong pass"] = FALSE;
                             }
-                            
+
                             else
                             {
                                 $_SESSION["id"] = $this->user->user_id;
+                                $_SESSION["wrong pass"] = FALSE;
                             }
 
 }
