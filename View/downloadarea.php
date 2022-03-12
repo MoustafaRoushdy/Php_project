@@ -2,10 +2,11 @@
  ini_set('display_errors', 1);
  ini_set('display_startup_errors', 1);
  error_reporting(E_ALL);
- 
+ session_start();
   //  require('../Model/filedownload.php');
 
-
+var_dump($_COOKIE);
+var_dump($_SESSION["id"]);
  if( isset($_SESSION["id"]) || isset($_COOKIE["checked"]) ) {
 
       require('../Model/PaymentValidator.php');
@@ -23,7 +24,8 @@
             filedownload::logout();
         }
  }else {
-       header("Location:login.php",true,301);
-      exit();
+       //header("Location:login.php",true,301);
+     // exit();
+     echo "no cookies nor session";
  }
 ?>

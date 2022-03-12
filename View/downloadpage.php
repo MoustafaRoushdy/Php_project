@@ -2,6 +2,7 @@
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
+session_start();
 
     require('../Model/filedownload.php');
 
@@ -11,7 +12,7 @@ if(isset($_SESSION["id"])|| isset($_COOKIE["checked"])) {          //this line
 
 
 filedownload::connect();
-session_start();
+
 $path=$_SESSION["file"];
 
 if(isset($_GET["file"]))
