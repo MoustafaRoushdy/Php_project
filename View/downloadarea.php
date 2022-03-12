@@ -5,7 +5,8 @@
  
     require('../Model/filedownload.php');
 
- if( isset($_SESSION["mail"]) || isset($_COOKIE["checked"]) ) {
+ if( /*isset($_SESSION["id"]) )||*/ isset($_COOKIE["checked"]) ) 
+ {
       require('../Model/PaymentValidator.php');
 
       require "../vendor/autoload.php";

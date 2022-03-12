@@ -6,11 +6,17 @@ error_reporting(E_ALL);
 session_start();
 require_once ("../vendor/autoload.php");
 
-if(isset($_SESSION["id"]))
+if(isset($_COOKIE["checked"]))
 {
-    //header("Location:downloadarea.php");
+    header("Location:downloadarea.php");
 }
-else if(isset($_POST["username"]))
+else
+ if(isset($_SESSION["id"]))
+{
+    header("Location:downloadarea.php");
+}
+else 
+if(isset($_POST["username"]))
 {
     
     $visitor = new Visitor();
@@ -29,16 +35,16 @@ else if(isset($_POST["username"]))
     <center>   
         <body>    
             <h1>Login</h1>   
-            <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="POST" >
+            <form  method="POST" >
                 <div class="container">   
-                    <label>Username : </label>   
-                    <input type="text" placeholder="Enter Username" name="username" required>  
+                    <label>Useremail : </label>   
+                    <input placeholder="Enter Useremail" name="username" required>  
                     <label>Password : </label>   
-                    <input type="password" placeholder="Enter Password" name="password" required>  
+                    <input type="password" placeholder="Enter Password" name="password"  required>  
                     <button type="submit">Login</button>   
                     <center><input type="checkbox" checked="checked" name = "remember_me"> Remember me </center>
                     <h5><?php 
-                        if (isset($_SESSION["wrong pass"]))
+                        if (isset($_SESSION["wrong pass"])&& $_SESSION["wrong pass"]== TRUE )
                         echo "wrong user name and password";
                         else echo ""
                         ?></h5>
@@ -47,3 +53,4 @@ else if(isset($_POST["username"]))
         </body>    
     </center>  
     </html>  
+    <!-- pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" -->

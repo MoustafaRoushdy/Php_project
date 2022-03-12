@@ -41,6 +41,7 @@ class Visitor {
                                 $cookie_value = $this->user->user_id;
                                 setcookie($cookie_name, $cookie_value, time() + (60), "/"); 
                                 $_SESSION["wrong pass"] = FALSE;
+
                             }
 
                             else
