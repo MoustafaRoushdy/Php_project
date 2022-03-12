@@ -6,24 +6,18 @@ error_reporting(E_ALL);
 session_start();
 require_once ("../vendor/autoload.php");
 
-
-if(isset($_POST["username"]))
+if(isset($_SESSION["id"]))
+{
+    header("Location:downloadarea.php");
+}
+else if(isset($_POST["username"]))
 {
     
     $visitor = new Visitor();
     $visitor->login($_POST["username"],$_POST["password"],$_POST["remember_me"]);
 
 }
-/*
-if(!isset($_SESSION["mail"]))
-{
-    header("Location:login.php");
-}
-else if(isset($_SESSION["mail"]))
-{
-    header("Location:downloadpage.php");
-}
-*/
+
 ?>
 
 <html>   

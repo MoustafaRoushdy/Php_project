@@ -6,7 +6,7 @@ error_reporting(E_ALL);
     require('../Model/filedownload.php');
 
 use Illuminate\Database\Capsule\Manager as Capsule;
-if(/*isset($_SESSION["mail"])*/true) {
+if(isset($_SESSION["id"])) {          //this line
 	require "../vendor/autoload.php";
 
 
@@ -41,10 +41,10 @@ if(isset($_GET["file"]))
 	else{
 		echo "This File Does not exist.";
 	}
-          header("Location:downloadarea.php",true,301);
+       //   header("Location:downloadarea.php",true,301);
                                        exit();
 } }else {
-       header("Location:login.php",true,301);
+     //  header("Location:login.php",true,301);
         exit();
  }
 ?>
