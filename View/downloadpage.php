@@ -6,7 +6,7 @@ error_reporting(E_ALL);
     require('../Model/filedownload.php');
 
 use Illuminate\Database\Capsule\Manager as Capsule;
-if(isset($_SESSION["id"])) {          //this line
+if(isset($_SESSION["id"])|| isset($_COOKIE["checked"])) {          //this line
 	require "../vendor/autoload.php";
 
 
@@ -44,7 +44,8 @@ if(isset($_GET["file"]))
           header("Location:downloadarea.php",true,301);
                                        exit();
 } }else {
-      header("Location:login.php",true,301);
+
+       header("Location:login.php",true,301);
         exit();
  }
 ?>

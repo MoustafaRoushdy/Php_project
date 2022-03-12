@@ -3,10 +3,11 @@
  ini_set('display_startup_errors', 1);
  error_reporting(E_ALL);
  
-    require('../Model/filedownload.php');
+  //  require('../Model/filedownload.php');
 
- if( /*isset($_SESSION["id"]) )||*/ isset($_COOKIE["checked"]) ) 
- {
+
+ if( isset($_SESSION["id"]) || isset($_COOKIE["checked"]) ) {
+
       require('../Model/PaymentValidator.php');
 
       require "../vendor/autoload.php";
