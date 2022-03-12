@@ -25,8 +25,9 @@ class Visitor {
 
     public function login($user_name , $user_password , $remember_me) 
     {
+        $hashedPass = sha1($user_password) ;
         $this->user = $this->user_table->where('user_email','like',$user_name,"and")
-                            ->where("user_password","like",$user_password,"and")
+                            ->where("user_password","like", $hashedPass ,"and")
                             ->first();   //first not get --> to return non associatve array
 
                             if (!$this->user)

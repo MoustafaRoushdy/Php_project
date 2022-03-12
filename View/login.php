@@ -20,7 +20,8 @@ if(isset($_POST["username"]))
 {
     
     $visitor = new Visitor();
-    $visitor->login($_POST["username"],$_POST["password"],$_POST["remember_me"]);
+    $visitor->login($_POST["username"],$_POST["password"],$_POST["remember_me"]="off");
+    header("Location:downloadarea.php");
 
 }
 
