@@ -11,20 +11,6 @@ require_once ("vendor/autoload.php");
 header("Location:View/login.php");
 
 
-if(isset($_POST["username"]))
-{
-    
-    $x = new Visitor();
-}
-echo "<h5>hello</h5>";
-if(!isset($_SESSION["mail"]))
-{
-   // header("Location:View/login.php");
-}
-else if(isset($_SESSION["mail"]))
-{
-    header("Location:View/download.php");
-}
 
 
 

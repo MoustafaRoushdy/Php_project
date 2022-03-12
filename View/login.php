@@ -1,7 +1,26 @@
+<?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
-<?php 
+session_start();
+require_once ("../vendor/autoload.php");
 
+if(isset($_POST["username"]))
+{
+    
+    $visitor = new Visitor();
+    $visitor->login($_POST["username"],$_POST["password"]);
 
+}
+if(!isset($_SESSION["mail"]))
+{
+    header("Location:login.php");
+}
+else if(isset($_SESSION["mail"]))
+{
+    header("Location:downloadpage.php");
+}
 ?>
 <html>   
     <head>  
@@ -21,10 +40,10 @@
                     <button type="submit">Login</button>   
                     <center><input type="checkbox" checked="checked"> Remember me </center>
                     <h5><?php 
-                        if (isset($_SESSION["mail"]) && $_SESSION != "wrong")
-                        echo "you are redircted to download page";
-                        else if (isset($_SESSION["wrong_password"]) && $_SESSION["wrong_password"] == TRUE)
-                        echo "wrong user name and password";
+                        // if (isset($_SESSION["mail"]) && $_SESSION != "wrong")
+                        // echo "you are redircted to download page";
+                        // else if (isset($_SESSION["wrong_password"]) && $_SESSION["wrong_password"] == TRUE)
+                        // echo "wrong user name and password";
                         ?></h5>
                 </div>   
             </form>     

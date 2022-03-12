@@ -1,4 +1,7 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
 /**
  * Description of Visitor
@@ -17,21 +20,22 @@ class Visitor {
         
     }
     
-       public function login() {
+       public function login($user_name , $user_password) {
 
 
-        if($this->user_table->where('user_email','like',$_POST["username"],"and")->where("user_password","like",$_POST["password"],"and")->exists())
+        if($this->user_table->where('user_email','like',$user_name,"and")->where("user_password","like",$user_password,"and")->exists())
         {
             if (!isset($_SESSION["mail"]))
             {
-                $_SESSION["mail"] = $user_email;
-            }
-            header("Location:View/download.php");
+                $_SESSION["mail"] = $user_name;
+         
+          //  header("Location:View/download.php");
             echo "hello";
-        }
+             }
         else{
             $_SESSION["wrong_password"] = TRUE;
         }
             
     }
+}
 }

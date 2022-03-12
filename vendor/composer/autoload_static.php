@@ -153,11 +153,13 @@ class ComposerStaticInitd678a18c4d6ba04464490c6ec036d3ce
         'Dbconnection' => __DIR__ . '/../..' . '/Model/Dbconnection.php',
         'JsonException' => __DIR__ . '/..' . '/symfony/polyfill-php73/Resources/stubs/JsonException.php',
         'Normalizer' => __DIR__ . '/..' . '/symfony/polyfill-intl-normalizer/Resources/stubs/Normalizer.php',
+        'PaymentValidator' => __DIR__ . '/../..' . '/Model/PaymentValidator.php',
         'PhpToken' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/PhpToken.php',
         'Stringable' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Stringable.php',
         'UnhandledMatchError' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/UnhandledMatchError.php',
         'ValueError' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/ValueError.php',
         'Visitor' => __DIR__ . '/../..' . '/Model/Visitor.php',
+        'filedownload' => __DIR__ . '/../..' . '/Model/filedownload.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
