@@ -75,7 +75,7 @@ class filedownload{
    static  function logout(){
             session_unset();
             session_destroy();
-           setcookie("checked", "", time()-(60*60*24*7));
+            setcookie("checked", "", time()-(60*60*24*7));
             unset($_COOKIE["checked"]);
             header("Location:../View/login.php",true,301) ;
 

@@ -5,8 +5,7 @@
  session_start();
   //  require('../Model/filedownload.php');
 
-var_dump($_COOKIE);
-var_dump($_SESSION["id"]);
+
  if( isset($_SESSION["id"]) || isset($_COOKIE["checked"]) ) {
 
       require('../Model/PaymentValidator.php');
@@ -24,8 +23,8 @@ var_dump($_SESSION["id"]);
             filedownload::logout();
         }
  }else {
-       //header("Location:login.php",true,301);
-     // exit();
-     echo "no cookies nor session";
+       header("Location:login.php",true,301);
+     exit();
+   //  echo "no cookies nor session";
  }
 ?>
