@@ -6,13 +6,15 @@ error_reporting(E_ALL);
 session_start();
 require_once ("../vendor/autoload.php");
 
+
 if(isset($_POST["username"]))
 {
     
     $visitor = new Visitor();
-    $visitor->login($_POST["username"],$_POST["password"]);
+    $visitor->login($_POST["username"],$_POST["password"],$_POST["remember_me"]);
 
 }
+/*
 if(!isset($_SESSION["mail"]))
 {
     header("Location:login.php");
@@ -21,7 +23,9 @@ else if(isset($_SESSION["mail"]))
 {
     header("Location:downloadpage.php");
 }
+*/
 ?>
+
 <html>   
     <head>  
     <meta name="viewport" content="width=device-width, initial-scale=1">  
@@ -38,7 +42,7 @@ else if(isset($_SESSION["mail"]))
                     <label>Password : </label>   
                     <input type="password" placeholder="Enter Password" name="password" required>  
                     <button type="submit">Login</button>   
-                    <center><input type="checkbox" checked="checked"> Remember me </center>
+                    <center><input type="checkbox" checked="checked" name = "remember_me"> Remember me </center>
                     <h5><?php 
                         // if (isset($_SESSION["mail"]) && $_SESSION != "wrong")
                         // echo "you are redircted to download page";

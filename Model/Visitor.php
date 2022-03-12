@@ -1,4 +1,6 @@
 <?php
+
+/*******************dispalying errors*****************************/
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
@@ -11,6 +13,7 @@ error_reporting(E_ALL);
 class Visitor {
     
     private $user_table;
+    private $user;
                 
     function __construct()
     {
@@ -19,23 +22,37 @@ class Visitor {
         $this->user_table = $this->database->getTableName("users"); //using table users
         
     }
-    
-       public function login($user_name , $user_password) {
 
+    public function login($user_name , $user_password , $remember_me) 
+    {
+        $this->user = $this->user_table->where('user_email','like',$user_name,"and")
+                            ->where("user_password","like",$user_password,"and")
+                            ->first();   //first not get --> to return non associatve array
 
-        if($this->user_table->where('user_email','like',$user_name,"and")->where("user_password","like",$user_password,"and")->exists())
-        {
-            if (!isset($_SESSION["mail"]))
-            {
-                $_SESSION["mail"] = $user_name;
-         
-          //  header("Location:View/download.php");
-            echo "hello";
-             }
-        else{
-            $_SESSION["wrong_password"] = TRUE;
-        }
-            
-    }
+                            if (!$this->user)
+                            {
+                                echo "wrong username or password";
+                            }
+
+                            else if ($remember_me == "on")
+                            {
+                                $_SESSION["id"] = $this->user->user_id;
+                                $cookie_name = "checked";
+                                $cookie_value = $this->user->user_id;
+                                setcookie($cookie_name, $cookie_value, time() + (60), "/"); 
+                            }
+                            
+                            else
+                            {
+                                $_SESSION["id"] = $this->user->user_id;
+                            }
+
 }
 }
+
+
+
+
+// echo "<pre>";
+// print_r($user);
+// echo "<pre>";  
