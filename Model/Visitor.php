@@ -32,7 +32,6 @@ class Visitor {
 
                             if (!$this->user)
                             {
-                                echo "here";
                                 $_SESSION["wrong pass"] = TRUE;
                             }
 
