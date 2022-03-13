@@ -25,13 +25,14 @@ class Visitor {
 
     public function login($user_name , $user_password , $remember_me) 
     {
-        $hashedPass = sha1($user_password) ;
+        $hashed_pass = sha1($user_password) ;
         $this->user = $this->user_table->where('user_email','like',$user_name,"and")
-                            ->where("user_password","like", $hashedPass ,"and")
+                            ->where("user_password","like", $hashed_pass ,"and")
                             ->first();   //first not get --> to return non associatve array
 
                             if (!$this->user)
                             {
+                                echo "here";
                                 $_SESSION["wrong pass"] = TRUE;
                             }
 
@@ -42,6 +43,8 @@ class Visitor {
                                 $cookie_value = $this->user->user_id;
                                 setcookie($cookie_name, $cookie_value, time() + (60), "/"); 
                                 $_SESSION["wrong pass"] = FALSE;
+                                header("Location:../View/downloadarea.php");
+
 
                             }
 
@@ -49,6 +52,8 @@ class Visitor {
                             {
                                 $_SESSION["id"] = $this->user->user_id;
                                 $_SESSION["wrong pass"] = FALSE;
+                                header("Location:../View/downloadarea.php");
+
                             }
 
 }
