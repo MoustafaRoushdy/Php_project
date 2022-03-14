@@ -14,6 +14,7 @@ return array(
     'PaymentValidator' => $baseDir . '/Model/PaymentValidator.php',
     'PhpToken' => $vendorDir . '/symfony/polyfill-php80/Resources/stubs/PhpToken.php',
     'Stringable' => $vendorDir . '/symfony/polyfill-php80/Resources/stubs/Stringable.php',
+    'Token' => $baseDir . '/Model/Token.php',
     'UnhandledMatchError' => $vendorDir . '/symfony/polyfill-php80/Resources/stubs/UnhandledMatchError.php',
     'ValueError' => $vendorDir . '/symfony/polyfill-php80/Resources/stubs/ValueError.php',
     'Visitor' => $baseDir . '/Model/Visitor.php',

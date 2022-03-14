@@ -5,7 +5,7 @@
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '9916576dd0874731518aa84cb0c535744abba12f',
+        'reference' => '25bbc9d0330950f51b61f86a6ee2b3a42c697ab2',
         'name' => 'vendor_name/phpproject',
         'dev' => true,
     ),
@@ -232,7 +232,7 @@
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '9916576dd0874731518aa84cb0c535744abba12f',
+            'reference' => '25bbc9d0330950f51b61f86a6ee2b3a42c697ab2',
             'dev_requirement' => false,
         ),
         'voku/portable-ascii' => array(

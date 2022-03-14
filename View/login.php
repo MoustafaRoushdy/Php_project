@@ -5,7 +5,8 @@ error_reporting(E_ALL);
 
 session_start();
 require_once ("../vendor/autoload.php");
-
+// $y =Token::is_token_exists($_COOKIE["value"],$_COOKIE["token"]);
+// var_dump($y);
 if(isset($_COOKIE["checked"]))
 {
     header("Location:downloadarea.php");
@@ -20,7 +21,7 @@ if(isset($_POST["username"]))
 {
     
     $visitor = new Visitor();
-    $visitor->login($_POST["username"],$_POST["password"],$_POST["remember_me"]="off");
+    $visitor->login($_POST["username"],$_POST["password"],$_POST["remember_me"]);
 
 }
 
@@ -34,7 +35,7 @@ if(isset($_POST["username"]))
     </head> 
     <center>   
         <body>    
-            <h1>Login</h1>   
+            <h1>Login here</h1>   
             <form  method="POST" >
                 <div class="container">   
                     <label>Useremail : </label>   

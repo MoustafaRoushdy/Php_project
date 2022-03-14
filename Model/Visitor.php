@@ -4,6 +4,7 @@
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
+require_once ("../vendor/autoload.php");
 
 /**
  * Description of Visitor
@@ -14,12 +15,14 @@ class Visitor {
     
     private $user_table;
     private $user;
+    
                 
     function __construct()
     {
        
         $this->database = new Dbconnection();  //creating object from database
         $this->user_table = $this->database->getTableName("users"); //using table users
+        
         
     }
 
@@ -40,7 +43,11 @@ class Visitor {
                                 $_SESSION["id"] = $this->user->user_id;
                                 $cookie_name = "checked";
                                 $cookie_value = $this->user->user_id;
-                                setcookie($cookie_name, $cookie_value, time() + (60), "/"); 
+                                $token = new Token($this->user->user_id);
+                                $cookie_token= $token->get_cookie_token();
+                                var_dump($cookie_token);
+                                setcookie($cookie_name, $cookie_value,$cookie_token, time() + (60), "/"); 
+                                
                                 $_SESSION["wrong pass"] = FALSE;
                                 header("Location:../View/downloadarea.php");
 
@@ -51,7 +58,8 @@ class Visitor {
                             {
                                 $_SESSION["id"] = $this->user->user_id;
                                 $_SESSION["wrong pass"] = FALSE;
-                                header("Location:../View/downloadarea.php");
+                                var_dump($remember_me);
+                                // header("Location:../View/downloadarea.php");
 
                             }
 

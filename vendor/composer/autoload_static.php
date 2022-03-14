@@ -156,6 +156,7 @@ class ComposerStaticInitd678a18c4d6ba04464490c6ec036d3ce
         'PaymentValidator' => __DIR__ . '/../..' . '/Model/PaymentValidator.php',
         'PhpToken' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/PhpToken.php',
         'Stringable' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Stringable.php',
+        'Token' => __DIR__ . '/../..' . '/Model/Token.php',
         'UnhandledMatchError' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/UnhandledMatchError.php',
         'ValueError' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/ValueError.php',
         'Visitor' => __DIR__ . '/../..' . '/Model/Visitor.php',
