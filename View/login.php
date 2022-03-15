@@ -5,9 +5,7 @@ error_reporting(E_ALL);
 
 session_start();
 require_once ("../vendor/autoload.php");
-// $y =Token::is_token_exists($_COOKIE["value"],$_COOKIE["token"]);
-// var_dump($y);
-if(isset($_COOKIE["checked"]))
+if(Token::is_token_exists($_COOKIE["checked"],$_COOKIE["token"]))
 {
     header("Location:downloadarea.php");
 }

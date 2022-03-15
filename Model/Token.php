@@ -20,11 +20,15 @@ class Token
 
     public static function is_token_exists ($user_id,$cookie_token)
     {
+        if($user_id == null || $cookie_token == null)
+        {
+            return 0 ; 
+        }
         $db = new Dbconnection();
-        $x = $db->getTableName("tokens")->where("user_id","=",$user_id,"and")
+        $user = $db->getTableName("tokens")->where("user_id","=",$user_id,"and")
                                         ->where("remember_me_token","like",$cookie_token,"and")
-                                        ->exists();
-                                   var_dump($x);
-        return $x;
+                                        ->first();
+                                
+        return $user->user_id;
     }
 }

@@ -45,11 +45,10 @@ class Visitor {
                                 $cookie_value = $this->user->user_id;
                                 $token = new Token($this->user->user_id);
                                 $cookie_token= $token->get_cookie_token();
-                                var_dump($cookie_token);
-                                setcookie($cookie_name, $cookie_value,$cookie_token, time() + (60), "/"); 
-                                
+                                setcookie($cookie_name, $cookie_value, time() + (60*60), "/"); 
+                                setcookie("token",$cookie_token,time()+60*60, "/");
                                 $_SESSION["wrong pass"] = FALSE;
-                                header("Location:../View/downloadarea.php");
+                                // header("Location:../View/downloadarea.php");
 
 
                             }
