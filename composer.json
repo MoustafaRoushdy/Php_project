@@ -3,7 +3,7 @@
     "description": "simple project",
     "license": "MIT",
     
-    "require": {"illuminate/database" :"*","simplesoftwareio/simple-qrcode":"*","chillerlan/php-qrcode":"*"},
+    "require": {"illuminate/database" :"*","chillerlan/php-qrcode":"*"},
     "autoload": {
         "classmap": ["Model","View"],
         "files" : ["config.php"]
