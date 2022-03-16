@@ -1,13 +1,12 @@
 {
-    "name":"phpproject/downloadarea",
-    "description": "composer",
+    "name": "vendor_name/phpproject",
+    "description": "simple project",
     "license": "MIT",
-    "require" : {
-      
-        "illuminate/database": "*"
-    },
-    "autoload":{
-        "classmap": ["model"],
-        "files": ["conf.php"]
+    
+    "require": {"illuminate/database" :"*","chillerlan/php-qrcode":"*"},
+    "autoload": {
+        "classmap": ["Model","View"],
+        "files" : ["config.php"]
     }
+    
 }
