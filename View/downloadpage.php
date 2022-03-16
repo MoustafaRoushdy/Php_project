@@ -55,30 +55,14 @@ if(isset($_GET["file"]))
 <html>
 <head>
 	<title>Download File using PHP</title>
-	<style>
-		body{
-			background-image: url("image.jpg");
-			background-size: 2000px;
-		}
-		.container{
-			margin: auto;
-			margin-top: 100px;
-			width:320px;
-			height: 300px;
-			padding: 16px;
-			color: #f2f3f4;
-		}
-		h1{
-			color: #8B0000;
-		}
-	</style>
+	<link rel="stylesheet" href="downloadpage.css">
 </head>
 <body>
 	<div class="container">
-		<h1>Download Page </h1>
+	<center><h1>Download Page </h1></center>
 		<h2  > <?php echo "XYZ_OS42.txt   sizeof: 1kb";?> </h2>
 
-		<a href="downloadpage.php?file=<?php echo $path ?>">click HERE</a> to download
+		<button><a href="downloadpage.php?file=<?php echo $path ?>">Download</a></button>
 	</div>
 
 

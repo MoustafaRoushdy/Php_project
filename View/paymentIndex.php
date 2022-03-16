@@ -76,7 +76,7 @@
         <?php echo $errors['expirationDate'] ?? '' ?>
       </div>
       <div class="expiration-date" >
-      <select name='expireMM' id='expireMM' value="">
+      <select name='expireMM' id='expireMM' value="" size="1">
     <option value=''>Month</option>
     <option value='01'>January</option>
     <option value='02'>February</option>
@@ -90,6 +90,7 @@
     <option value='10'>October</option>
     <option value='11'>November</option>
     <option value='12'>December</option>
+ 
     </select> 
     <select name='expireYY' id='expireYY'>
         <option value=''>Year</option>
@@ -98,14 +99,16 @@
         <option value='2024'>2024</option>
         <option value='2025'>2025</option>
         <option value='2026'>2026</option>
+       
     </select>
 
     </div>
-
+ <div class="last-contain">
       <input type="submit" value="submit" name="submit" >
       <input type="submit" value="login" name="login" >
-
+      </div>
     </form>
+   
 </div>
 </body>
 </html>

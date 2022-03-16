@@ -5,7 +5,8 @@ error_reporting(E_ALL);
 
 session_start();
 require_once ("../vendor/autoload.php");
-if(Token::is_token_exists($_COOKIE["checked"],$_COOKIE["token"]))
+
+if(isset($_COOKIE["checked"]))
 {
     header("Location:downloadarea.php");
 }
@@ -19,7 +20,7 @@ if(isset($_POST["username"]))
 {
     
     $visitor = new Visitor();
-    $visitor->login($_POST["username"],$_POST["password"],$_POST["remember_me"]);
+    $visitor->login($_POST["username"],$_POST["password"],$_POST["remember_me"]="off");
 
 }
 
@@ -31,25 +32,28 @@ if(isset($_POST["username"]))
     <title> Login Page </title>  
     <link rel="stylesheet" href="login.css">
     </head> 
-    <center>   
-        <body>    
-            <h1>Login here</h1>   
+      
+        <body> 
+        <div class="new-user">   
+           <center> <h2>Login</h2> </center>  
             <form  method="POST" >
-                <div class="container">   
-                    <label>Useremail : </label>   
-                    <input placeholder="Enter Useremail" name="username" required>  
+                <!-- <div class="container">    -->
+                    <label>User Email : </label>   
+                    <input type ="text" name="username" required>  
                     <label>Password : </label>   
-                    <input type="password" placeholder="Enter Password" name="password"  required>  
-                    <button type="submit">Login</button>   
-                    <center><input type="checkbox" checked="checked" name = "remember_me"> Remember me </center>
+                    <input type="password"  name="password"  required> 
+                  
+                      <label><input class="check-dis"type="checkbox" checked="checked" name = "remember_me"> Remember me</label> 
+                   
+                    <input type="submit" value="submit" name="submit" > 
                     <h5><?php 
                         if (isset($_SESSION["wrong pass"])&& $_SESSION["wrong pass"]== TRUE )
                         echo "wrong user name and password";
                         else echo ""
                         ?></h5>
-                </div>   
-            </form>     
+            </form>  
+</div>   
         </body>    
-    </center>  
+    
     </html>  
     <!-- pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" -->
