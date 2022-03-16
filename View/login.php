@@ -30,7 +30,7 @@ if(isset($_POST["username"]))
     <head>  
     <meta name="viewport" content="width=device-width, initial-scale=1">  
     <title> Login Page </title>  
-    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="./CSS/login.css">
     </head> 
       
         <body> 

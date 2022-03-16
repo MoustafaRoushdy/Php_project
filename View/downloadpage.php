@@ -55,7 +55,7 @@ if(isset($_GET["file"]))
 <html>
 <head>
 	<title>Download File using PHP</title>
-	<link rel="stylesheet" href="downloadpage.css">
+	<link rel="stylesheet" href="./CSS/downloadpage.css">
 </head>
 <body>
 	<div class="container">
