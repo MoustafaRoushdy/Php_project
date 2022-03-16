@@ -2,6 +2,9 @@
    require('../Model/PaymentValidator.php');
   
 
+   use chillerlan\QRCode\QRCode;
+   use chillerlan\QRCode\QROptions;
+
    $errors = []; // declaring errors[]
 
 
@@ -24,6 +27,15 @@
     }
 }
 
+  $options = new QROptions(
+    [
+      'eccLevel' => QRCode::ECC_L,
+      'outputType' => QRCode::OUTPUT_MARKUP_SVG,
+      'version' => 5,
+    ]
+  );
+
+  $qrcode = (new QRCode($options))->render('http://localhost/project/Php_project/View/paymentindex.php');
 ?>
 
 <!DOCTYPE html>
@@ -50,13 +62,13 @@
       <div class="error">
         <?php echo $errors['password'] ?? '' ?>
       </div>
-      <input type="text" name="password" value="<?php if(isset($_POST['password'])) echo htmlspecialchars($_POST['password']) ?? '' ?>">
+      <input type="password" name="password" value="<?php if(isset($_POST['password'])) echo htmlspecialchars($_POST['password']) ?? '' ?>">
      
       <label>Confirm Password: </label>
       <div class="error">
         <?php echo $errors['confirmPassword'] ?? '' ?>
       </div>
-      <input type="text" name="confirmPassword" value="<?php if(isset($_POST['confirmPassword'])) echo htmlspecialchars($_POST['confirmPassword']) ?? '' ?>">
+      <input type="password" name="confirmPassword" value="<?php if(isset($_POST['confirmPassword'])) echo htmlspecialchars($_POST['confirmPassword']) ?? '' ?>">
 
       <label>Credit Card Number: </label>
       <div class="error">
@@ -108,7 +120,10 @@
       <input type="submit" value="login" name="login" >
       </div>
     </form>
-   
+    <center>
+      <img src='<?= $qrcode ?>' alt='QR Code' width='100' height='100'>
+      <p class="qr">scan me to come here again</p>
+    </center>
 </div>
 </body>
 </html>
