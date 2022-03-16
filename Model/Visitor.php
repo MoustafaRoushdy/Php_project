@@ -48,7 +48,7 @@ class Visitor {
                                 setcookie($cookie_name, $cookie_value, time() + (60*60), "/"); 
                                 setcookie("token",$cookie_token,time()+60*60, "/");
                                 $_SESSION["wrong pass"] = FALSE;
-                                // header("Location:../View/downloadarea.php");
+                                header("Location:../View/downloadarea.php");
 
 
                             }
@@ -58,7 +58,7 @@ class Visitor {
                                 $_SESSION["id"] = $this->user->user_id;
                                 $_SESSION["wrong pass"] = FALSE;
                                 var_dump($remember_me);
-                                // header("Location:../View/downloadarea.php");
+                                header("Location:../View/لdownloadarea.php");
 
                             }
 
